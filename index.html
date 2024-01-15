@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin tức sự kiện - tập đoàn SagoGroup</title>
+    <!-- Link reset CSS -->
+    <link rel="stylesheet" href="./https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <!-- Link icons -->
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.4.0/css/all.min.css">
+    <!-- Link font chữ -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&subset=vietnamese" rel="stylesheet">
+    <link rel="stylesheet" href="./styles_Login.css">
+</head>
+<body>
+    <wrapper class="wrapper">
+        <!-- Khung đăng nhập -->
+        <form action="" id="form-login" class="js-form-login" onsubmit="return validate()">
+            <h1 class="form-heading">Đăng nhập</h1>
+            <div class="form-group">
+                <img src="./img_Login/user.png" alt="user">
+                <input type="email" class="form-input" placeholder="Email" id="userName">
+            </div>
+            <p class="error-message" id="userName-error"></p>
+            <div class="form-group">
+                <img src="./img_Login/password.png" alt="lock">
+                <input type="password" class="form-input passWord" placeholder="Mật khẩu" id="passWord">
+                <img src="./img_Login/eye-closed.png" alt="eye" class="eye" onclick="toggleImage()">
+            </div>
+            <p class="error-message" id="passWord-error"></p>
+            <p class="fogot-password js-fogot-password">Quên mật khẩu?</p>
+            <input type="submit" value="Đăng nhập" class="form-submit" name="submit">
+            <p class="form-register js-text-rigter">Bạn chưa có tài khoản? <a href="#">Đăng kí ngay</a></p>
+            <div class="media">
+                <div class="space" onclick="fb()">
+                    <img src="./img_Login/fb.png" alt="facebook">
+                    <p>Facebook</p>
+                </div>
+                <div class="space" onclick="gm()">
+                    <img src="./img_Login/gm.png" alt="gmail">
+                    <p>Gmail</p>
+                </div>
+                <div class="space" onclick="gh()">
+                    <img src="./img_Login/gh.png" alt="github">
+                    <p>Github</p>
+                </div>
+            </div>
+        </form>
+        <!-- Khung đăng nhập -->
+    </wrapper>
+    
+    <!-- Model quên mật khẩu -->
+    <div class="modal-fogot-password js-modal-fogot-password">
+        <div class="modal-container js-modal-container">
+            <img src="./img_Login/lock.png" alt="">
+            <h1 class="modal-heading">Quên mật khẩu?</h1>
+            <p >Vui lòng nhập địa chỉ Email để lấy lại mật khẩu</p>
+            <div class="modal-form-group">
+                <img src="./img_Login/email.png" alt="">
+                <input type="email" placeholder="Nhập email" class="modal-form-input">
+            </div>
+            <input type="submit" value="Lấy lại mật khẩu" class="form-submit">
+        </div>
+    </div>
+    <!-- Model quên mật khẩu -->
+
+    <!-- Khung đăng kí -->
+    <wrapper class="wrapper">
+        <form action="" id="form-login" class="js-form-login" onsubmit="return checklength()">
+            <h1 class="form-heading">Đăng kí</h1>
+            <div class="form-group">
+                <img src="./img_Login/user.png" alt="">
+                <input type="text" class="form-input" placeholder="First Name" name="firstName" id="firstName">
+            </div>
+            <div class="form-group">
+                <img src="./img_Login/user.png" alt="">
+                <input type="text" class="form-input" placeholder="Last Name" name="lastName" id="lastName">
+            </div>
+            <div class="form-group">
+                <img src="./img_Login/user.png" alt="">
+                <input type="email" class="form-input" placeholder="Email" name="userName" id="userName">
+            </div>
+            <div class="form-group">
+                <img src="./img_Login/password.png" alt="">
+                <input type="password" class="form-input passWord" placeholder="Mật khẩu" name="passWord" id="passWord">
+                <img src="./img_Login/eye-closed.png" alt="eye" class="eye" onclick="toggleImage()">
+            </div>
+            <div class="form-group">
+                <img src="./img_Login/replace.png" alt="">
+                <input type="password" class="form-input passWord" placeholder="Nhập lại mật khẩu" id="replace-passWord">
+                <img src="./img_Login/eye-closed.png" alt="eye" class="eye" onclick="toggleImage()">
+            </div>
+            <input type="submit" value="Tạo tài khoản" class="form-submit" name="submit">
+            <p class="form-register js-text-rigter">Bạn đã có tài khoản? <a href="#">Đăng nhập ngay</a></p>
+        </form>
+    </wrapper>
+    <!-- Khung đăng kí -->
+    
+    <div class="app">
+        <!-- Start HEADER -->
+    <header class="header">
+        <div class="grid">
+            <div class="header__grid">
+                <div class="header__left-side">
+                    <a href="#">
+                        <img src="./assets/images/logoSGG.jpg" alt="SagoGroup" class="header__logo-link" >
+                    </a>
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item">
+                            <a href="./HomePage.html">
+                                Trang chủ
+                            </a>
+                        </li>
+                        <li class="header__navbar-item">
+                            <a href="./intro.html">
+                                Giới thiệu tập đoàn 
+                            </a>
+                        </li>
+                        <li class="header__navbar-item">
+                            <a href="./index.html">
+                                Lĩnh vực hoạt động
+                            </a>
+                        </li>
+                        <li class="header__navbar-item">
+                            <a href="./technology_intrustry.html">
+                                Phát triển
+                            </a>
+                        </li>
+                        <li class="header__navbar-item  header__navbar-item--primary-color">
+                            <a href="./index_News.html">
+                                Tin tức sự kiện
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="line"></div>
+                </div>
+                <div class="header__right-side">
+                    <ul class="header__navbar-list" id="authButtons">
+                        <li class="header__navbar-item header__navbar-item--primary-color js-login admin-name">Đăng nhập</li>
+                        <li class="header__navbar-item">
+                            <button class="btn btn--primary js-signup">Đăng ký</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End HEADER -->
+    
+        <!-- Start HEADER -->
+        <!-- <header class="header">
+            <div class="grid">
+                <div class="header__grid">
+                    <div class="header__left-side">
+                        <a href="#">
+                            <img src="./assets/images/logoSGG.jpg" alt="SagoGroup" class="header__logo-link" >
+                        </a>
+                        <ul class="header__navbar-list">
+                            <li class="header__navbar-item">Trang chủ</li>
+                            <li class="header__navbar-item"> Giới thiệu tập đoàn </li>
+                            <li class="header__navbar-item">Lĩnh vực hoạt động</li>
+                            <li class="header__navbar-item">Phát triển</li>
+                            <li class="header__navbar-item">Tin tức sự kiện</li>
+                        </ul>
+                        <div class="line"></div>
+                    </div>
+                    <div class="header__right-side">
+                        <ul class="header__navbar-list">
+                            <li class="header__navbar-item header__navbar-item--primary-color">Đăng nhập</li>
+                            <li class="header__navbar-item">
+                                <button class="btn btn--primary">Đăng ký</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header> -->
+        <!-- End HEADER -->
+
+        <!-- Start BODY -->
+        <section class="news-event-container">
+            <div class="grid">
+                <div class="grid__row">
+                    <div class="grid__column-3">
+                        <nav class="news-event-category">
+                            <div class="news-event-category__head">
+                                <h3 class="news-event-category__heading">
+                                    <i class="news-event-category__icon-bars fa-solid fa-list"></i>
+                                    Tin tức sự kiện
+                                </h3>
+                                <button class="btn-createNews">
+                                    <i class="fa-solid fa-plus"></i>
+                                    Đăng tin
+                                </button>
+                            </div>
+                            <ul class="news-event-category-list">
+                                <li class="news-event-category-item news-event-category-item--active">Tất cả</li>
+                                <li class="news-event-category-item" name="Tin công nghệ">Công nghệ</li>
+                                <li class="news-event-category-item" name="Tin công nghiệp">Công nghiệp</li>
+                                <li class="news-event-category-item" name="Tin bất động sản">Bất động sản</li>
+                                <li class="news-event-category-item" name="Tin du lịch - văn hóa - giải trí">Du lịch - Vui chơi - Giải trí</li>
+                                <li class="news-event-category-item" name="Tin y tế">Y tế</li>
+                                <li class="news-event-category-item" name="Tin giáo dục">Giáo dục</li>
+                                <li class="news-event-category-item" name="Tin bán lẻ">Bán lẻ</li>
+                            </ul>
+                        </nav>
+                        <h1 class="heading-search">
+                            <i class="fa-solid fa-newspaper"></i>
+                            Tìm kiếm tin tức
+                        </h1>
+
+                        <!-- Thanh tìm kiếm -->
+                        <input type="text" id="searchInput" placeholder="Nhập thông tin bạn muốn đọc">
+                        
+                        <!-- Kết quả tìm kiếm -->
+                        <ul id="searchResults"></ul>
+                    </div>
+    
+                    <div class="grid__column-9">
+                        <div class="home-news">
+                            <div class="grid__row" id="list-news">
+                                <div></div>
+                            </div>
+                            <!-- <div class="grid__row">
+                                <div class="grid__column-6-9">
+                                    <div class="home-news-new-item">
+                                        <div class="home-news-new-item__image">
+                                            <div class="home-news-item__img" style="background: url('https://ircdn.vingroup.net/storage/Uploads/0_Tintuchoatdong/2023/Oct/A3.jpg') center"></div>
+                                        </div>
+                                        <div class="home-news-new-item__content">
+                                            <h4 class="home-news-item__category">Tin công nghiệp</h4>
+                                            <h3 class="home-news-item__heading">
+                                                VINFAST VÀ BIDV TRIỂN KHAI CHƯƠNG TRÌNH TRI ÂN ĐẶC BIỆT DÀNH CHO NHÀ GIÁO VIỆT NAM
+                                            </h3>
+                                            <p class="home-news-item__date">11-11-2023</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid__column-3-9">
+                                    <div class="home-news-item">
+                                        <div class="home-news-item__img" style="background: url('./assets/images/1.jpg') center"></div>
+                                        <h4 class="home-news-item__category">Tin công nghiệp</h4>
+                                        <h3 class="home-news-item__heading">
+                                            VINFAST VÀ BIDV TRIỂN KHAI CHƯƠNG TRÌNH TRI ÂN ĐẶC BIỆT DÀNH CHO NHÀ GIÁO VIỆT NAM
+                                        </h3>
+                                        <p class="home-news-item__date">31-10-2023</p>
+                                    </div>
+                                </div>
+                                <div class="grid__column-3-9">
+                                    <div class="home-news-item">
+                                        <div class="home-news-item__img" style="background: url('https://ircdn.vingroup.net/storage/Uploads/0_Tintuchoatdong/2023/Oct/GSM Laos 1.jpg') center"></div>
+                                        <h4 class="home-news-item__category">Tin công nghiệp</h4>
+                                        <h3 class="home-news-item__heading">
+                                            VINFAST VÀ BIDV TRIỂN KHAI CHƯƠNG TRÌNH TRI ÂN ĐẶC BIỆT DÀNH CHO NHÀ GIÁO VIỆT NAM
+                                        </h3>
+                                        <p class="home-news-item__date">30-10-2023</p>
+                                    </div>
+                                </div>
+                                <div class="grid__column-3-9">
+                                    <div class="home-news-item">
+                                        <div class="home-news-item__img" style="background: url('https://ircdn.vingroup.net/storage/Uploads/0_Tintuchoatdong/2023/Oct/Sat nhap Vines.jpeg') center"></div>
+                                        <h4 class="home-news-item__category">Tin công nghiệp</h4>
+                                        <h3 class="home-news-item__heading">
+                                            VINFAST VÀ BIDV TRIỂN KHAI CHƯƠNG TRÌNH TRI ÂN ĐẶC BIỆT DÀNH CHO NHÀ GIÁO VIỆT NAM
+                                        </h3>
+                                        <p class="home-news-item__date">21-10-2023</p>
+                                    </div>
+                                </div>
+                                <div class="grid__column-3-9">
+                                    <div class="home-news-item">
+                                        <div class="home-news-item__img" style="background: url('https://ircdn.vingroup.net/storage/Uploads/0_Tintuchoatdong/2023/Oct/VF 6_3.jpg') center"></div>
+                                        <h4 class="home-news-item__category">Tin công nghiệp</h4>
+                                        <h3 class="home-news-item__heading">
+                                            VINFAST VÀ BIDV TRIỂN KHAI CHƯƠNG TRÌNH TRI ÂN ĐẶC BIỆT DÀNH CHO NHÀ GIÁO VIỆT NAM
+                                        </h3>
+                                        <p class="home-news-item__date">10-10-2023</p>
+                                    </div>
+                                </div>
+                                
+                            </div> -->
+                        </div>
+
+                        <ul class="pagination">
+                            <li class="pagination-item">
+                                <i class="pagination-item__icon fa-solid fa-angles-left"></i>
+                            </li>
+                            <li class="pagination-item">
+                                <i class="pagination-item__icon fa-solid fa-chevron-left"></i>
+                            </li>
+                            <li>
+                                <ul class="pagination-numPage"></ul>
+                            </li>
+
+                            <li class="pagination-item">
+                                <i class="pagination-item__icon fa-solid fa-angle-right"></i>
+                            </li>
+                            <li class="pagination-item">
+                                <i class="pagination-item__icon fa-solid fa-angles-right"></i>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- End BODY -->
+
+        <!-- Form Create News -->
+        <div class="modal">
+            <div class="modal__overlay"></div>
+
+            <div class="modal__body">
+
+                <div class="authe-form" >
+
+                    <div class="authe-form__container">
+                        <div class="authe-form__header">
+                            <h3 class="authe-form__heading">
+                                <i class="fa-solid fa-plus"></i>
+                                Tin tức mới
+                            </h3>
+                            <span class="authe-form__shutdown">
+                                <i class="fa-solid fa-x"></i>
+                            </span>
+                        </div>
+
+                        <div class="authe-form__form">
+                            <div class="authe-form__group">
+                                <input id="link-image" name="link-image" type="text" class="authe-form__input" placeholder="Link hình ảnh">
+                                <span class="form-message form-message-image"></span>
+                            </div>
+                            <div class="authe-form__group">
+                                <input id="link-news" name="link-news" type="text" class="authe-form__input" placeholder="Link bài viết">
+                                <span class="form-message form-message-news"></span>
+                            </div>
+                            <div class="authe-form__group">
+                                <select id="categorySelector" class="authe-form__input" aria-placeholder="">
+                                    <option value="">Chọn thể loại bài viết</option>
+                                    <option >Tin Công nghệ</option>
+                                    <option >Tin Công nghiệp</option>
+                                    <option >Tin Bất động sản</option>
+                                    <option >Tin Du lịch - Vui chơi - Giải trí</option>
+                                    <option >Tin Y Tế</option>
+                                    <option >Tin Giáo dục</option>
+                                    <option >Tin Bán lẻ</option>
+                                  </select>
+                                <!-- <input id="link-news" name="link-news" type="text" class="authe-form__input" placeholder="Link bài viết"> -->
+                                <span class="form-message form-message-selector"></span>
+                            </div>
+                            <div class="authe-form__group">
+                                <input id="title-news" name="title-news" type="text" class="authe-form__input" placeholder="Tiêu đề bài viết">
+                                <span class="form-message form-message-title"></span>
+                            </div>
+                            <div class="authe-form__group">
+                                <input id="date-upload" name="date-upload" type="date" class="authe-form__input" placeholder="Ngày đăng tải">
+                                <span class="form-message form-message-date"></span>
+                            </div>
+                        </div>
+
+                        <!-- <div class="authe-form__aside">
+                            <p class="authe-form__policy-text">
+                                Bằng việc đăng kí, bạn đồng ý với shop về
+                                <a href="" class="authe-form__text-link">Điều khoản dich vụ</a> &
+                                <a href="" class="authe-form__text-link">Chính sách bảo mật</a>
+                            </p>
+                        </div> -->
+
+                        <div class="authe-form__controls">
+                            <button class="btn btn--normal authe-form__controls-reset">LÀM MỚI</button>
+                            <button class="btn btn--primary authe-form__controls-upload" onclick="uploadNewNews()">ĐĂNG</button>
+                        </div>
+                    </div>
+
+                    <!-- <div class="authe-form__socials">
+                        <a href="" class="authe-form__socials--facebook btn btn--size-s btn--with-icon">
+                            <i class="authe-form__socials-icon fa-brands fa-square-facebook"></i>
+                            <span class="authe-form__socials-label">Kết nối với Facebook</span>
+                        </a>
+                        <a href="" class="authe-form__socials--google btn btn--size-s btn--with-icon">
+                            <i class="authe-form__socials-icon authe-form__socials-icon-google fa-brands fa-google"></i>
+                            <span class="authe-form__socials-label">Kết nối với Google</span>
+                        </a>
+                    </div> -->
+
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Form Update News -->
+        <div class="modal-update">
+            <div class="modal__overlay"></div>
+
+            <div class="modal__body">
+
+                <div class="authe-form" >
+
+                    <div class="authe-form__container">
+                        <div class="authe-form__header">
+                            <h3 class="authe-form__heading">
+                                <i class="fa-solid fa-rotate"></i>
+                                Sửa bài viết
+                            </h3>
+                            <span class="authe-form__shutdown-update">
+                                <i class="fa-solid fa-x"></i>
+                            </span>
+                        </div>
+
+                        <div class="authe-form__form">
+                            <div class="authe-form__group">
+                                <input id="editImage" name="link-image" type="text" class="authe-form__input-update" placeholder="Link hình ảnh">
+                                <span class="form-message form-message-image-update"></span>
+                            </div>
+                            <div class="authe-form__group">
+                                <input id="editLink" name="link-news" type="text" class="authe-form__input-update" placeholder="Link bài viết">
+                                <span class="form-message form-message-news-update"></span>
+                            </div>
+                            <div class="authe-form__group">
+                                <select id="editCategory" class="authe-form__input-update" aria-placeholder="">
+                                    <option value="">Chọn thể loại bài viết</option>
+                                    <option value="Tin Công nghệ">Tin Công nghệ</option>
+                                    <option value="Tin Công nghiệp">Tin Công nghiệp</option>
+                                    <option value="Tin Bất động sản">Tin Bất động sản</option>
+                                    <option value="Tin Du lịch - Vui chơi - Giải trí">Tin Du lịch - Vui chơi - Giải trí</option>
+                                    <option value="Tin Y Tế">Tin Y Tế</option>
+                                    <option value="Tin Giáo dục">Tin Giáo dục</option>
+                                    <option value="Tin Bán lẻ">Tin Bán lẻ</option>
+                                  </select>
+                                <!-- <input id="link-news" name="link-news" type="text" class="authe-form__input" placeholder="Link bài viết"> -->
+                                <span class="form-message form-message-selector-update"></span>
+                            </div>
+                            <div class="authe-form__group">
+                                <input id="editTitle" name="title-news" type="text" class="authe-form__input-update" placeholder="Tiêu đề bài viết">
+                                <span class="form-message form-message-title-update"></span>
+                            </div>
+                            <div class="authe-form__group">
+                                <input id="editDate" name="date-upload" type="date" class="authe-form__input-update" placeholder="Ngày đăng tải" readonly>
+                                <span class="form-message form-message-date-update"></span>
+                            </div>
+                        </div>
+
+                        <!-- <div class="authe-form__aside">
+                            <p class="authe-form__policy-text">
+                                Bằng việc đăng kí, bạn đồng ý với shop về
+                                <a href="" class="authe-form__text-link">Điều khoản dich vụ</a> &
+                                <a href="" class="authe-form__text-link">Chính sách bảo mật</a>
+                            </p>
+                        </div> -->
+
+                        <div class="authe-form__controls">
+                            <button class="btn btn--normal authe-form__controls-reset-update">LÀM MỚI</button>
+                            <button id="editForm" class="btn btn--primary authe-form__controls-upload-update">CẬP NHẬT</button>
+                        </div>
+                    </div>
+
+                    <!-- <div class="authe-form__socials">
+                        <a href="" class="authe-form__socials--facebook btn btn--size-s btn--with-icon">
+                            <i class="authe-form__socials-icon fa-brands fa-square-facebook"></i>
+                            <span class="authe-form__socials-label">Kết nối với Facebook</span>
+                        </a>
+                        <a href="" class="authe-form__socials--google btn btn--size-s btn--with-icon">
+                            <i class="authe-form__socials-icon authe-form__socials-icon-google fa-brands fa-google"></i>
+                            <span class="authe-form__socials-label">Kết nối với Google</span>
+                        </a>
+                    </div> -->
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Start FOOTER -->
+    <footer class="footer">
+        <div class="footer-space"></div>
+        <div class="footer-body">
+            <div class="grid">
+                <div class="grid__row footer-body-mid">
+                    <div class="grid__column-2-4">
+                        <div class="footer-item">
+                            <h3 class="footer-item__heading">Chăm sóc khách hàng</h3>
+                            <ul class="footer-item__list">
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>Trung tâm trợ giúp</span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            SagoGroup Blog
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            SagoGroup Mall
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Cơ hội việc làm
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Hướng dẫn đăng ký
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Đối tác
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Nhu cầu hợp tác
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Giao thông vận tải
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Chiến lược phát triển
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Chăm sóc khách hàng
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Chính sách bảo mật
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid__column-2-4">
+                        <div class="footer-item">
+                            <h3 class="footer-item__heading">Về SagoGroup</h3>
+                            <ul class="footer-item__list">
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Giới thiệu về SagoGroup
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Tuyển dụng
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Điều khoản SagoGroup
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Định hướng phát triển
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Chất lượng
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Khách hàng
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Chiến lược kinh doanh
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Chương trình tiếp thị
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <span>
+                                            Liên hệ với truyền thông
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid__column-2-4">
+                        <div class="footer-item">
+                            <h3 class="footer-item__heading">Khách hàng</h3>
+                            <div class="footer-item__info">
+                                <img src="https://down-vn.img.susercontent.com/file/d4bbea4570b93bfd5fc652ca82a262a8" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/a0a9062ebe19b45c1ae0506f16af5c16" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/38fd98e55806c3b2e4535c4e4a6c4c08" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/bc2a874caeee705449c164be385b796c" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/2c46b83d84111ddc32cfd3b5995d9281" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/5e3f0bee86058637ff23cfdf2e14ca09" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/9263fa8c83628f5deff55e2a90758b06" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/0217f1d345587aa0a300e69e2195c492" alt="" class="footer-item__img">
+                            </div>
+                            <h3 class="footer-item__heading">Đơn vị hợp tác</h3>
+                            <div class="footer-item__info">
+                                <img src="https://down-vn.img.susercontent.com/file/vn-50009109-159200e3e365de418aae52b840f24185" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/d10b0ec09f0322f9201a4f3daf378ed2" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/77bf96a871418fbc21cc63dd39fb5f15" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/59270fb2f3fbb7cbc92fca3877edde3f" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/957f4eec32b963115f952835c779cd2c" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/0d349e22ca8d4337d11c9b134cf9fe63" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/3900aefbf52b1c180ba66e5ec91190e5" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/6e3be504f08f88a15a28a9a447d94d3d" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/b8348201b4611fc3315b82765d35fc63" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/0b3014da32de48c03340a4e4154328f6" alt="" class="footer-item__img">
+                                <img src="https://down-vn.img.susercontent.com/file/vn-50009109-ec3ae587db6309b791b78eb8af6793fd" alt="" class="footer-item__img">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid__column-2-4">
+                        <div class="footer-item">  
+                            <h3 class="footer-item__heading">Theo dõi chúng tôi trên</h3>
+                            <ul class="footer-item__list">
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <i class="footer-item__list-item-icon fa-brands fa-facebook"></i>
+                                        <span>
+                                            Facebook
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <i class="footer-item__list-item-icon fa-brands fa-square-instagram"></i>   
+                                        <span>
+                                            Instagram
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item__list-item">
+                                    <a href="" class="footer-item__list-item-link">
+                                        <i class="footer-item__list-item-icon fa-brands fa-linkedin"></i>
+                                        <span>
+                                            LinkedIn
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid__column-2-4">
+                        <div class="footer-item">
+                            <h3 class="footer-item__heading">Tải ứng dụng ngay thôi</h3>
+                            <div class="footer-item__body">
+                                <a href="" class="footer-item__qr-link">
+                                    <img src="https://down-vn.img.susercontent.com/file/a5e589e8e118e937dc660f224b9a1472" alt="" class="footer-item__qr-img">
+                                </a>
+                                <div class="footer-item__app">
+                                    <a href="" class="footer-item__app-link">
+                                        <img src="https://down-vn.img.susercontent.com/file/ad01628e90ddf248076685f73497c163" alt="" class="footer-item__app-img">
+                                    </a>
+                                    <a href="" class="footer-item__app-link">
+                                        <img src="https://down-vn.img.susercontent.com/file/ae7dced05f7243d0f3171f786e123def" alt="" class="footer-item__app-img">
+                                    </a>
+                                    <a href="" class="footer-item__app-link">
+                                        <img src="https://down-vn.img.susercontent.com/file/35352374f39bdd03b25e7b83542b2cb0" alt="" class="footer-item__app-img">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-body__countries">
+                    <span class="footer-body__countries-reserve">© 2023 SagoGroup. Tất cả các quyền được bảo lưu.</span>
+                    <span class="footer-body__countries-country">
+                        <span class="footer-body__countries-intro">Quốc gia & Khu vực:</span>
+                        <ul class="footer-body__countries-list">
+                            <li class="footer-body__countries-item">
+                                <a href="" class="footer-body__countries-link">Singapore</a>
+                            </li>
+                            <li class="footer-body__countries-item">
+                                <a href="" class="footer-body__countries-link">Indonesia</a>
+                            </li>
+                            <li class="footer-body__countries-item">
+                                <a href="" class="footer-body__countries-link">Đài Loan</a>
+                            </li>
+                            <li class="footer-body__countries-item">
+                                <a href="" class="footer-body__countries-link">Thái Lan</a>
+                            </li>
+                            <li class="footer-body__countries-item">
+                                <a href="" class="footer-body__countries-link">Malaysia</a>
+                            </li>
+                            <li class="footer-body__countries-item">
+                                <a href="" class="footer-body__countries-link">Việt Nam</a>
+                            </li>
+                            <li class="footer-body__countries-item">
+                                <a href="" class="footer-body__countries-link">Philippines</a>
+                            </li>
+                            <li class="footer-body__countries-item">
+                                <a href="" class="footer-body__countries-link">Brazil</a>
+                            </li>
+                            <li class="footer-body__countries-item">
+                                <a href="" class="footer-body__countries-link">México</a>
+                            </li>
+                            <li class="footer-body__countries-item">
+                                <a href="" class="footer-body__countries-link">Colombia</a>
+                            </li>
+                            <li class="footer-body__countries-item">
+                                <a href="" class="footer-body__countries-link">Chile</a>
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        <div class="footer-bottom">
+                <div class="footer-bottom__regulation">
+                    <ul class="footer-bottom__regulation-list">
+                        <li class="footer-bottom__regulation-item">
+                            <a href="">Chính sách bảo mật</a>
+                        </li>
+                        <li class="footer-bottom__regulation-item">
+                            <a href="">Quy chế hoạt động</a>
+                        </li>
+                        <li class="footer-bottom__regulation-item">
+                            <a href="">Chính sách hợp tác</a>
+                        </li>
+                        <li class="footer-bottom__regulation-item">
+                            <a href="">Chính sách kinh doanh khách hàng</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-bottom__certification">
+                    <ul class="footer-bottom__certification-list">
+                        <li class="footer-bottom__certification-item">
+                            <a href="" class="footer-bottom__certification-link">
+                                <img src="./assets/img/BCT-certification.png" alt="">
+                            </a>
+                        </li>
+                        <li class="footer-bottom__certification-item">
+                            <a href="" class="footer-bottom__certification-link">
+                                <img src="./assets/img/BCT-certification.png" alt="">
+                            </a>
+                        </li>
+                        <li class="footer-bottom__certification-item">
+                            <a href="" class="footer-bottom__certification-link">
+                                <img src="assets/img/fingerprint-certification.png" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <span class="footer-bottom__company-name">Tập đoàn SagoGroup</span>
+                <span class="footer-bottom__company-info">Địa chỉ: Tầng 4-5-6, Tòa nhà Capital Place, số 29 đường Liễu Giai, Phường Ngọc Khánh, Quận Ba Đình, Thành phố Hà Nội, Việt Nam. Tổng đài hỗ trợ: 19001221 - Email: cskh@hotro.shopee.vn</span>
+                <span class="footer-bottom__company-info">Chịu Trách Nhiệm Quản Lý Nội Dung: Nguyễn Đức Trí - Điện thoại liên hệ: 024 73081221 (ext 4678)</span>
+                <span class="footer-bottom__company-info">Mã số doanh nghiệp: 0106773786 do Sở Kế hoạch & Đầu tư TP Hà Nội cấp lần đầu ngày 10/02/2015</span>
+                <span class="footer-bottom__company-info">© 2015 - Bản quyền thuộc về tập đoàn SagoGroup</span>
+            </div>
+        </div>
+    </footer>
+    <!-- End FOOTER -->
+</div>
+    <script src="script.js"></script>
+    <script src="./main_Login.js"></script>
+
+</body>
+</html>
